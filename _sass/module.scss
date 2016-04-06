@@ -1,0 +1,187 @@
+.header {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  .logo {
+    width: 270px;
+    height: 130px;
+    background-image: url("../asset/image/ngao.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 30%;
+    cursor: pointer;
+    &:active {
+      -webkit-transform: rotateZ(-15deg);
+      transform: rotateZ(-15deg);
+    }
+  }
+}
+.hanh-tinh {
+  margin: 5px 0;
+  -webkit-transition: margin .4s ease-in-out;
+  transition: margin .4s ease-in-out;
+  > .wrapper {
+    margin: auto;
+    max-width: 430px;
+    padding: 0 15px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
+    .decorate {
+      width: 100%;
+      cursor: pointer;
+      -webkit-transition: opacity .2s ease-in-out;
+      -moz-transition: opacity .2s ease-in-out;
+      -ms-transition: opacity .2s ease-in-out;
+      -o-transition: opacity .2s ease-in-out;
+      transition: opacity .2s ease-in-out;
+      img {
+        width: 100%;
+      }
+      &:hover {
+        opacity: .95;
+      }
+      &:active {
+        opacity: 1;
+      }
+    }
+    .literal {
+      margin: 5px 0;
+      max-width: 180px;
+      display: none;
+      > .wrapper {
+        width: 100%;
+        .title {
+          width: 100%;
+        }
+        .content {
+          width: 100%;
+          margin: 5px 0;
+        }
+        .tags {
+          list-style: none;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-flex-flow: row wrap;
+          flex-flow: row wrap;
+          li {
+            &:before {
+              content: "#";
+            }
+            a, a:link {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.cooking-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  max-width: 660px;
+  margin: auto;
+}
+
+.cooking-zone-serve {
+  width: 320px;
+  background-color: #ddd;
+}
+.cooking-zone {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-align-items: center;
+  align-items: center;
+  .row {
+    width: 320px;
+  }
+
+  #row-continue-to-writing-container {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+
+
+  input[type='text'], {
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 5px;
+    border: solid 1px #ddd;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 100;
+    &:focus {
+      outline: none;
+    }
+  }
+  .group {
+    &.image-input {
+      img {
+        display: block;
+        width: 100%;
+      }
+      label {
+        display: block;
+        width: 100%;
+        border: solid 1px #ddd;
+        text-align: center;
+        height: 25px;
+        line-height: 23px;
+      }
+      input {
+        display: block;
+        width: 100%;
+        border-top: none;
+        border-bottom: none;
+        font-size: 18px;
+      }
+    }
+    &.literal-input {
+      input[type="text"] {
+        height: auto;
+        line-height: normal;
+        display: block;
+        width: 100%;
+        border-top: none;
+        border-bottom: none;
+        font-size: 18px;
+        padding: 10px 15px 5px;
+      }
+      textarea {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        border: solid 1px #ddd;
+        border-top: none;
+        font-size: 13px;
+        font-family: inherit;
+        color: inherit;
+        padding: 0 15px;
+        height: 300px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.hidden {
+  display: none;
+}
+.quiet {
+  opacity: .6;
+}
+
+.pseudo-toggle-button:checked + .hanh-tinh {
+  margin: 5px 0;
+  .decorate {
+    max-width: 200px;
+  }
+  .literal {
+    display: block;
+  }
+}

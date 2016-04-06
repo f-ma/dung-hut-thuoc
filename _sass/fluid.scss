@@ -1,0 +1,22 @@
+@media (max-width: 720px) {
+  .hanh-tinh {
+    margin: 15px 0;
+    -webkit-transition: none;
+    transition: none;
+    .wrapper {
+      -webkit-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+      -webkit-align-items: center;
+      align-items: center;
+      padding: 0 5px;
+      .literal {
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      .tags {
+        -webkit-justify-content: center;
+        justify-content: center;
+      }
+    }
+  }
+}

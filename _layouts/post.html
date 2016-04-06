@@ -1,0 +1,22 @@
+---
+layout: post-default
+---
+<input id="{{ page.year }}-{{ page.month }}-{{ page.day }}-{{ page.hour }}-{{ page.minute }}-{{ page.second }}-{{ page.id }}" class="pseudo-toggle-button hidden" type="checkbox" />
+<section class="hanh-tinh planet">
+    <div class="wrapper">
+        <label for="{{ page.year }}-{{ page.month }}-{{ page.day }}-{{ page.hour }}-{{ page.minute }}-{{ page.second }}-{{ page.id }}" class="decorate">
+            <img src="{{ page.imgUrl }}" alt="{{ page.imgAlt }}" />
+        </label>
+        <article class="literal">
+            <div class="wrapper">
+                <h3 class="title">{{ page.title }}</h3>
+                <p class="content">{{ page.content }}</p>
+                <ul class="tags">
+                {% for tag in page.tags %}
+                  <li><a href="#">{{ tag }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </article>
+    </div>
+</section>

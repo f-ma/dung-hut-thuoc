@@ -1,0 +1,132 @@
+---
+layout: one-column
+---
+<div class="cooking-container">
+  <div class="cooking-zone">
+    <div class="row">
+      <div class="group image-input">
+        <section id="url-input-container">
+          <label for="text-image-url-input">Địa chỉ ảnh nèèèèè</label>
+          <input id="text-image-url-input" class="alone" type="text" placeholder="http://" />
+        </section>
+        <img id="image-output" src="/asset/image/p-4.jpg" width="320px" />
+      </div>
+    </div>
+    <div id="row-continue-to-writing-container" class="row">
+      <div class="group literal-input">
+        <input type="text" id="text-title-input" placeholder="tiêu đề thì ở đâyyyyy" />
+        <textarea id="text-content-input" placeholder=""></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="cooking-zone-serve" style="display: flex; display: -webkit-flex; -webkit-flex-flow: column; flex-flow: column nowrap; -webkit-align-items: stretch; align-items: stretch;">
+    <textarea id="serve" style="white-space: pre-line; word-break: break-word; height: 100%; width: 100%; -webkit-flex-flow: 1; flex-grow: 1; resize: none;"></textarea>
+  </div>
+</div>
+
+<script>
+;(function(window) {
+  function init() {
+    window.super = document.getElementById('super');
+    window.urlInputContainer = document.getElementById('url-input-container');
+    window.textImageUrlInputElem = document.getElementById('text-image-url-input');
+    window.imageOutput = document.getElementById('image-output');
+    window.rowContinuetoWritingContainerElem = document.getElementById('row-continue-to-writing-container');
+    window.serve = document.getElementById('serve');
+    window.textTitleInputElem = document.getElementById('text-title-input');
+    window.textContentInputElem = document.getElementById('text-content-input');
+    _initEventListeners();
+  }
+  function _initEventListeners() {
+    if (window.textTitleInputElem) {
+      window.textTitleInputElem.addEventListener("keyup", function() {
+        var _curDate =
+        window.serve.value = "---\n";
+        window.serve.value += "layout: post";
+        window.serve.value += "\ntitle: " + window.textTitleInputElem.value;
+        window.serve.value += "\nog-title: " + window.textTitleInputElem.value;
+        window.serve.value += "\ndescription: ";
+        window.serve.value += "\nog-description: ";
+        window.serve.value += "\nimgUrl: " + window.textImageUrlInputElem.value;
+        window.serve.value += "\nimgAlt: " + window.textTitleInputElem.value;
+
+        window.serve.value += "\ndate: " + new Date().getFullYear() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getDate() + " " + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+        window.serve.value += "\nyear: " + new Date().getFullYear();
+        window.serve.value += "\nmonth: " + (new Date().getMonth() +1);
+        window.serve.value += "\nday: " + (new Date().getDate());
+        window.serve.value += "\nhour: " + (new Date().getHours());
+        window.serve.value += "\nminute: " + (new Date().getMinutes());
+        window.serve.value += "\nsecond: " + (new Date().getSeconds());
+        window.serve.value += "\n---\n";
+        window.serve.value += window.textContentInputElem.value;
+      });
+    }
+    if (window.textContentInputElem) {
+      window.textContentInputElem.addEventListener("keyup", function() {
+        window.serve.value = "---\n";
+        window.serve.value += "layout: post";
+        window.serve.value += "\ntitle: " + window.textTitleInputElem.value;
+        window.serve.value += "\nog-title: " + window.textTitleInputElem.value;
+        window.serve.value += "\ndescription: ";
+        window.serve.value += "\nog-description: ";
+        window.serve.value += "\nimgUrl: " + window.textImageUrlInputElem.value;
+        window.serve.value += "\nimgAlt: " + window.textTitleInputElem.value;
+
+        window.serve.value += "\ndate: " + new Date().getFullYear() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getDate() + " " + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+        window.serve.value += "\nyear: " + new Date().getFullYear();
+        window.serve.value += "\nmonth: " + (new Date().getMonth() +1);
+        window.serve.value += "\nday: " + (new Date().getDate());
+        window.serve.value += "\nhour: " + (new Date().getHours());
+        window.serve.value += "\nminute: " + (new Date().getMinutes());
+        window.serve.value += "\nsecond: " + (new Date().getSeconds());
+        window.serve.value += "\n---\n";
+        window.serve.value += window.textContentInputElem.value;
+      });
+    }
+    if (window.imageOutput) {
+      window.imageOutput.addEventListener("error", function(e) {
+        var _num = Math.floor(Math.random() * (9 - 7)) + 7;
+        window.imageOutput.src = "/asset/image/p-"+ _num +".jpg";
+        window.urlInputContainer.classList.remove('hidden');
+        window.rowContinuetoWritingContainerElem.classList.remove('active');
+      });
+    } else {
+      console.error('Event Listener Initialization has been failed! Detail: window.imageOutput');
+    }
+    if (window.textImageUrlInputElem) {
+      window.textImageUrlInputElem.addEventListener("keyup", function(e) {
+        if (window.textImageUrlInputElemTimeout) {
+          window.clearTimeout(window.textImageUrlInputElemTimeout);
+        }
+        window.textImageUrlInputElemTimeout = window.setTimeout(function() {
+          if (!e.target.value) {
+            window.imageOutput.src = "/asset/image/p-4.jpg";
+            return false;
+          };
+          window.imageOutput.src = e.target.value;
+          window.urlInputContainer.classList.add('hidden');
+          window.rowContinuetoWritingContainerElem.classList.add('active');
+        }, 500, e);
+      });
+    } else {
+      console.error('Event Listener Initialization has been failed! Detail: window.textImageUrlInputElem');
+    }
+    if (window.super) {
+      window.super.addEventListener("click", _reset);
+    } else {
+      console.error('Event Listener Initialization has been failed! Detail: window.super');
+    }
+  }
+
+  function _reset() {
+    window.urlInputContainer.classList.remove('hidden');
+    window.imageOutput.src = "/asset/image/p-4.jpg";
+  }
+
+  //add to global
+
+  init();
+
+})(window);
+</script>
